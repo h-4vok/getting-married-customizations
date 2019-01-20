@@ -1,48 +1,55 @@
+<script type="text/javascript" src="https://priscila-christian.000webhostapp.com/wp-content/themes/catch-fullscreen/assets/js/notify.min.js"></script>
+
 <script type="text/javascript">
-    // Initialize CustomJS singleton if not existing
-    // We will save all our code within this bad boy
+    // Initialize CustomJS object if it does not exist
+    // We will save all our code within this bad boy so we avoid collisions
     var CustomJS = CustomJS || {};
 
 </script>
 <script>
 
-    // Create a closure for the main page countdown
-    CustomJS.Countdown = function(containerName) {
+    /* Countdown logic on the main page */
+
+    // We will call this closure on the document.ready as the last script
+    CustomJS.Countdown = function (containerName) {
         // Set the date we're counting down to
-        var countDownDate = new Date("May 18, 2019 20:00:00").getTime();
+        let countDownDate = new Date("May 18, 2019 21:30:00").getTime();
 
         // Update the count down every 1 second
-        var x = setInterval(function() {
+        let x = setInterval(function () {
 
             // Get todays date and time
-            var now = new Date().getTime();
+            let now = new Date().getTime();
 
             // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+            let distance = countDownDate - now;
 
             // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the result in the element with id="countdown"
-            document.getElementById(containerName).innerHTML = days + " días " + hours + " horas "
-            + minutes + " minutos " + seconds + " segundos.";
+            document.getElementById(containerName).innerHTML =
+                days + " días " + hours + " horas " + minutes + " minutos " + seconds + " segundos.";
 
             // If the count down is finished, write some text 
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById(containerName).innerHTML = "";
+                document.getElementById(containerName).innerHTML = "Gracias a todos!!!!";
             }
         }, 1000);
     };
 
 </script>
+
 <script type="text/javascript">
 
-    // Removing ads of the hosting server! LOL
-    CustomJS.RemoveAds = function() {
+    /* Removing ads of the hosting server! LOL */
+
+    // We will call this closure on the document.ready as the last script
+    CustomJS.RemoveAds = function () {
 
         let removed = false;
         let adsInterval = null;
@@ -63,10 +70,10 @@
 
         removeAdsClosure();
 
-        if(removed) return;
+        if (removed) return;
 
         // Can't recall why I need this. Clearly the ads must be coming back.
-        adsInterval = setInterval(function() {
+        adsInterval = setInterval(function () {
             removeAdsClosure();
         }, 1000)
 
@@ -80,17 +87,17 @@
     CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
 
     // Helper function we will use a lot!
-    CustomJS.OpenMapLocation = function(url) {
+    CustomJS.OpenMapLocation = function (url) {
         window.open(url, "_blank");
     };
 
     // Opening the google maps location of where the civil union will take place
-    CustomJS.OpenCivilLocation = function() {
+    CustomJS.OpenCivilLocation = function () {
         CustomJS.OpenMapLocation(CustomJS._civilUnionLocation);
     };
 
     // Opening the google maps location of where the party will take place 
-    CustomJS.OpenPartyLocation = function() {
+    CustomJS.OpenPartyLocation = function () {
         CustomJS.OpenMapLocation(CustomJS._partyLocation);
     };
 
@@ -98,45 +105,118 @@
 
 <script type="text/javascript">
 
-    CustomJS._getGridySubtitleHtml = function(text, mapLocationScript) {
+    CustomJS._copyTextToClipboard = function (element, text) {
+        const hiddenElement = document.createElement('textarea');
+        hiddenElement.value = text;
+        document.body.appendChild(hiddenElement);
+        hiddenElement.select();
+        document.execCommand('copy');
+        document.body.removeChild(hiddenElement);
+
+        jQuery(element).notify("Copiado!", "info");
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    /* Helper methods that build HTML components */
+
+    // Build a BUTTON the way we like it
+    CustomJS._getButtonHtml = function (text, className, script) {
+
+        const buttonElement = "<button class='" + className + " subtext-button' onClick='" + script + "'>" + text + "</button>";
+        return buttonElement;
+
+    }
+
+    // Build a GRID style subtitle html with an optional suffix element
+    CustomJS._getGridySubtitleHtml = function (html, suffixElement) {
+
+        suffixElement = suffixElement ? suffixElement : "";
 
         const gridDivOpen = "<div class='subtitle-grid-container'>";
-        const subtitleElement = "<span class='subtitle-grid-subtitle'>" +  text + "</span>";
-        const buttonElement = "<div class='subtitle-grid-mapbutton'><button class='subtitle-grid-mapbutton subtext-button' onClick='" + mapLocationScript + "'>Cómo Llegar</button></div>";
+        const subtitleElement = "<span class='subtitle-grid-subtitle'>" + html + "</span>";
         const gridDivClose = "</div>";
 
-        const output = gridDivOpen + subtitleElement + buttonElement + gridDivClose;
+        const output = gridDivOpen + subtitleElement + suffixElement + gridDivClose;
+
+        return output;
+
+    }
+
+    // Build a GRID style subtitle html with a button below for google maps links
+    CustomJS._getGridySubtitleAndButtonHtml = function (text, mapLocationScript) {
+
+        const buttonElement = CustomJS._getButtonHtml("Cómo llegar", "subtitle-grid-mapbutton", mapLocationScript);
+        const divWithButtonElement = "<div class='subtitle-grid-mapbutton'>" + buttonElement + "</div>";
+
+        const output = CustomJS._getGridySubtitleHtml(text, divWithButtonElement);
 
         return output;
 
     };
 
+    // Specific Build closure for a GRID style for the Gifts section
+    CustomJS._getGiftsSectionHtml = function () {
+
+        const subtitleText = "Si tenés ganas de hacernos un regalo depositanos directamente!";
+
+        const gridContainerOpen = '<div class="gifts-grid-container">';
+        const subtitleElement = '<div class="gifts-grid-subtitle"><span>' + subtitleText + '</span>';
+        const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
+        const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "2033074907");');
+        const aliasButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
+        const divClose = '</div>';
+
+        const output = 
+            gridContainerOpen
+                + subtitleElement
+                + cbuButton + cuilButton + aliasButton
+            + divClose;
+
+        return output;
+    }
+
+</script>
+
+<script type="text/javascript">
+
     // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
-    CustomJS.SetTitlesAndSubtitles = function() {
+    CustomJS.SetTitlesAndSubtitles = function () {
 
         const civilUnionPostSubtitle = jQuery("#post-35 .posted-on");
-        
+
         const partyPostTitle = jQuery("post-48 .entry-title");
         const partyPostSubtitle = jQuery("#post-48 .posted-on");
 
+        const giftsPostSubtitle = jQuery("#post-50 .posted-on")
+
         // Civil Union customization
         if (civilUnionPostSubtitle.length) {
-            civilUnionPostSubtitle[0].innerHTML = 
-                CustomJS._getGridySubtitleHtml(
-                    "Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.", 
-                    "CustomJS.OpenCivilLocation();");
+            civilUnionPostSubtitle[0].innerHTML =
+                CustomJS._getGridySubtitleAndButtonHtml(
+                    "Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.",
+                    "CustomJS.OpenCivilLocation();"
+                );
         }
 
         // Party Post customization
-        if (partyPostTitle.length) { 
+        if (partyPostTitle.length) {
             partyPostTitle[0].innerHTML = '<a href="' + CustomJS._partyLocation + '" rel="bookmark">La Fiesta!</a>';
         }
 
         if (partyPostSubtitle.length) {
-            partyPostSubtitle[0].innerHTML = 
-                CustomJS._getGridySubtitleHtml(
-                    "La fiesta es en Ensueño Recepciones a las 21:30hs, Sábado 18 de Mayo! España 122, Avellaneda.", 
-                    "CustomJS.OpenPartyLocation();");
+            partyPostSubtitle[0].innerHTML =
+                CustomJS._getGridySubtitleAndButtonHtml(
+                    "La fiesta es en Ensueño Recepciones a las 21:30hs, Sábado 18 de Mayo! España 122, Avellaneda.",
+                    "CustomJS.OpenPartyLocation();"
+                );
+        }
+
+        // Gifts section customization
+        if (giftsPostSubtitle.length) {
+            giftsPostSubtitle[0].innerHTML = CustomJS._getGiftsSectionHtml();
         }
 
     };
@@ -145,12 +225,37 @@
 
 <script type="text/javascript">
 
+    CustomJS.SetTopBanner = function() {
+        
+        let topBanner = jQuery("#header-content");
+
+        if (topBanner.length) {
+            topBanner[0].innerHTML = 
+                '<div class="wrapper">'
+                    + '<div class="site-header-main">'
+                        + '<div class="site-branding">'
+                            + '<div class="site-identity">'
+                                + '<h1 class="site-title"><a href="https://priscila-christian.000webhostapp.com/" rel="home">Priscila &amp; Christian</a></h1>'
+                            + '</div>'
+                        + '</div>'
+                    + '</div>'
+                + '</div>';
+        }
+
+    };
+
+</script>
+
+
+<script type="text/javascript">
+
     // On the document ready event (yep, using jQuery, it's a cheap development yo) we call all the closures we have been defining so far.
     // This way we separate each concern in a separate script tag and then we call everything we want here.
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
         CustomJS.Countdown('countdown');
         CustomJS.RemoveAds();
         CustomJS.SetTitlesAndSubtitles();
+        CustomJS.SetTopBanner();
     });
 
 </script>

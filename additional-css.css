@@ -1,3 +1,7 @@
+#header-content { 
+    background: rgb(0,0,0,0.1) !important;
+}
+
 .section .entry-content-wrapper .entry-header {
 	max-width: 720px;
 }
@@ -49,6 +53,13 @@ body #fp-nav ul li a.active span, body .fp-slidesNav ul li a.active span {
 	margin-top: 0px;
 }
 
+.custom-header h1.entry-title,
+.custom-header div.entry-summary {
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+        0px 8px 13px rgba(0,0,0,0.1),
+        0px 18px 23px rgba(0,0,0,0.1);
+}
+
 h2.entry-title a {
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
@@ -77,4 +88,27 @@ h2.entry-title a {
 
 .content-align-right .entry-meta .posted-on {
     padding-right: 0px !important;
+}
+
+.gifts-grid-subtitle {
+    grid-area: gifts-subtitle;
+}
+
+.gifts-grid-button {
+    grid-area: gifts-button;
+    margin: 0 1rem 0 0;
+}
+
+.gifts-grid-container {
+    display: grid;
+    grid-template-areas:
+        'gifts-subtitle'
+        'gifts-button   gifts-button    gifts-button';
+    grid-gap: 10px;
+}
+
+span {
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }
