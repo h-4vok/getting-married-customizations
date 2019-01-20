@@ -1,0 +1,111 @@
+<script type="text/javascript">
+    // Initialize CustomJS singleton if not existing
+    // We will save all our code within this bad boy
+    var CustomJS = CustomJS || {};
+
+</script>
+<script>
+
+    // Create a closure for the main page countdown
+    CustomJS.Countdown = function(containerName) {
+        // Set the date we're counting down to
+        var countDownDate = new Date("May 18, 2019 20:00:00").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get todays date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById(containerName).innerHTML = days + " días " + hours + " horas "
+            + minutes + " minutos " + seconds + " segundos.";
+
+            // If the count down is finished, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById(containerName).innerHTML = "";
+            }
+        }, 1000);
+    };
+
+</script>
+<script type="text/javascript">
+
+    // Removing ads of the theme
+    CustomJS.RemoveAds = function() {
+
+        let removed = false;
+        let adsInterval = null;
+
+        let removeAdsClosure = () => {
+            let webhostDiv = jQuery('div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"]');
+
+            if (webhostDiv.length) {
+                if (removed) {
+                    if (adsInterval) clearInterval(adsInterval);
+                    return;
+                }
+
+                webhostDiv.hide();
+                if (adsInterval) clearInterval(adsInterval);
+            }
+        };
+
+        removeAdsClosure();
+
+        if(removed) return;
+
+        // Can't recall why I need this. Clearly the ads must be coming back.
+        adsInterval = setInterval(function() {
+            removeAdsClosure();
+        }, 1000)
+
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    // We want to change the behavior of the civil union event to open to the particular google maps location.
+    CustomJS.openCivil = function() {
+        window.open("https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw", "_blank");
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
+    CustomJS.SetSubtitles = function() {
+
+        const post35 = jQuery("#post-35 .posted-on");
+
+        if (post35.length) {
+            post35[0].innerHTML = "<span class='subtext'>Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.</span><button class='subtext-button' onClick='CustomJS.openCivil();'>Cómo Llegar</button>";
+        }
+
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    // On the document ready event (yep, using jQuery, it's a cheap development yo) we call all the closures we have been defining so far.
+    // This way we separate each concern in a separate script tag and then we call everything we want here.
+    jQuery(document).ready(function() {
+        CustomJS.Countdown('countdown');
+        CustomJS.RemoveAds();
+        CustomJS.SetSubtitles();
+    });
+
+</script>

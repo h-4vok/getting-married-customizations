@@ -1,0 +1,56 @@
+.section .entry-content-wrapper .entry-header {
+	max-width: 720px;
+}
+
+#countdown {
+	font-size: 2rem;
+}
+
+@media only screen and (max-width: 64em) {
+    #fullpage .entry-content-wrapper {
+		margin-right: 25px;
+	}
+	#countdown {
+		font-size: 0.9375rem;
+	}
+}
+
+div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"] {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+.subtext-button {
+	background-color: rgb(130, 36, 227);
+	min-width: 150px;
+}
+
+.subtext-button:hover {
+	background-color: #BCB7E3;
+	color: white;
+}
+
+a:hover {
+	color: rgb(130, 36, 227) !important;
+}
+
+body #fp-nav ul li a.active span, body .fp-slidesNav ul li a.active span {
+	background-color: rgb(130, 36, 227) !important;
+}
+
+#post-50 header.entry-header,
+#post-46 header.entry-header{
+	text-align: left !important;
+}
+
+#post-50 div.entry-container,
+#post-46 div.entry-container{
+	margin-left: unset !important;
+	margin-top: 0px;
+}
+
+h2.entry-title a {
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
