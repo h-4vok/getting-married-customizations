@@ -41,7 +41,7 @@
 </script>
 <script type="text/javascript">
 
-    // Removing ads of the theme
+    // Removing ads of the hosting server! LOL
     CustomJS.RemoveAds = function() {
 
         let removed = false;
@@ -76,22 +76,67 @@
 
 <script type="text/javascript">
 
-    // We want to change the behavior of the civil union event to open to the particular google maps location.
-    CustomJS.openCivil = function() {
-        window.open("https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw", "_blank");
+    CustomJS._civilUnionLocation = "https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw";
+    CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
+
+    // Helper function we will use a lot!
+    CustomJS.OpenMapLocation = function(url) {
+        window.open(url, "_blank");
+    };
+
+    // Opening the google maps location of where the civil union will take place
+    CustomJS.OpenCivilLocation = function() {
+        CustomJS.OpenMapLocation(CustomJS._civilUnionLocation);
+    };
+
+    // Opening the google maps location of where the party will take place 
+    CustomJS.OpenPartyLocation = function() {
+        CustomJS.OpenMapLocation(CustomJS._partyLocation);
     };
 
 </script>
 
 <script type="text/javascript">
 
+    CustomJS._getGridySubtitleHtml = function(text, mapLocationScript) {
+
+        const gridDivOpen = "<div class='subtitle-grid-container'>";
+        const subtitleElement = "<span class='subtitle-grid-subtitle'>" +  text + "</span>";
+        const buttonElement = "<div class='subtitle-grid-mapbutton'><button class='subtitle-grid-mapbutton subtext-button' onClick='" + mapLocationScript + "'>Cómo Llegar</button></div>";
+        const gridDivClose = "</div>";
+
+        const output = gridDivOpen + subtitleElement + buttonElement + gridDivClose;
+
+        return output;
+
+    };
+
     // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
-    CustomJS.SetSubtitles = function() {
+    CustomJS.SetTitlesAndSubtitles = function() {
 
-        const post35 = jQuery("#post-35 .posted-on");
+        const civilUnionPostSubtitle = jQuery("#post-35 .posted-on");
+        
+        const partyPostTitle = jQuery("post-48 .entry-title");
+        const partyPostSubtitle = jQuery("#post-48 .posted-on");
 
-        if (post35.length) {
-            post35[0].innerHTML = "<span class='subtext'>Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.</span><button class='subtext-button' onClick='CustomJS.openCivil();'>Cómo Llegar</button>";
+        // Civil Union customization
+        if (civilUnionPostSubtitle.length) {
+            civilUnionPostSubtitle[0].innerHTML = 
+                CustomJS._getGridySubtitleHtml(
+                    "Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.", 
+                    "CustomJS.OpenCivilLocation();");
+        }
+
+        // Party Post customization
+        if (partyPostTitle.length) { 
+            partyPostTitle[0].innerHTML = '<a href="' + CustomJS._partyLocation + '" rel="bookmark">La Fiesta!</a>';
+        }
+
+        if (partyPostSubtitle.length) {
+            partyPostSubtitle[0].innerHTML = 
+                CustomJS._getGridySubtitleHtml(
+                    "La fiesta es en Ensueño Recepciones a las 21:30hs, Sábado 18 de Mayo! España 122, Avellaneda.", 
+                    "CustomJS.OpenPartyLocation();");
         }
 
     };
@@ -105,7 +150,7 @@
     jQuery(document).ready(function() {
         CustomJS.Countdown('countdown');
         CustomJS.RemoveAds();
-        CustomJS.SetSubtitles();
+        CustomJS.SetTitlesAndSubtitles();
     });
 
 </script>
