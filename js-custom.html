@@ -161,13 +161,14 @@
     CustomJS._getGiftsSectionHtml = function () {
 
         const subtitleText = "Si tenés ganas de hacernos un regalo depositanos directamente!";
+        const divClose = '</div>';
 
         const gridContainerOpen = '<div class="gifts-grid-container">';
-        const subtitleElement = '<div class="gifts-grid-subtitle"><span>' + subtitleText + '</span>';
-        const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
-        const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "2033074907");');
-        const aliasButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
-        const divClose = '</div>';
+        const subtitleElement = '<div class="gifts-grid-subtitle"><span>' + subtitleText + '</span></div>';
+        const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
+        const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
+        const aliasButton = CustomJS._getButtonHtml("Copiar ALIAS", "gifts-grid-button3", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
+        
 
         const output = 
             gridContainerOpen
