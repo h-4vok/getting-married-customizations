@@ -87,10 +87,12 @@
 
     CustomJS._civilUnionLocation = "https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw";
     CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
+    CustomJS._giftsPostUrl = "https://priscila-christian.000webhostapp.com/2018/10/regalos";
 
     // Helper function we will use a lot!
-    CustomJS.OpenLink = function (url) {
-        window.open(url, "_blank");
+    CustomJS.OpenLink = function (url, target) {
+        target = target || "_blank";
+        window.open(url, target);
     };
 
     // Opening the google maps location of where the civil union will take place
@@ -101,6 +103,10 @@
     // Opening the google maps location of where the party will take place 
     CustomJS.OpenPartyLocation = function () {
         CustomJS.OpenLink(CustomJS._partyLocation);
+    };
+
+    CustomJS.OpenGiftsPage = function() {
+        CustomJS.OpenLink(CustomJS._giftsPostUrl, "_self");
     };
 
 </script>
@@ -163,18 +169,12 @@
     CustomJS._getGiftsSectionHtml = function () {
 
         const subtitleText = "Si tenés ganas de hacernos un regalo depositanos directamente!";
-        const cbu = "CBU: 0170118640000004384968";
-        const cuil = "CUIL: 2033074907";
-        const alias = "ALIAS: SALINA.CUNA.LLAMA";
         const divClose = '</div>';
 
         const gridContainerOpen = '<div class="gifts-grid-container">';
         const subtitleElement = '<div class="gifts-grid-subtitle">'
             + '<span class="gift-text-block">' + subtitleText + '</span>'
-            + '<span class="gift-text-block">' + cbu + '</span>'
-            + '<span class="gift-text-block">' + cuil + '</span>'
-            + '<span class="gift-text-block">' + alias + '</span>'
-            + '<span class="gift-text-block">' + CustomJS._getButtonHtml("Ver Datos", "", "") + '</span>'
+            + '<span class="gift-text-block">' + CustomJS._getButtonHtml("Ver Datos", "", "CustomJS.OpenGiftsPage();") + '</span>'
             + '</div>';
         // const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
         // const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
@@ -230,7 +230,7 @@
         if (civilUnionPostSubtitle.length) {
             civilUnionPostSubtitle[0].innerHTML =
                 CustomJS._getGridySubtitleAndButtonHtml(
-                    "Nos casamos por civil el Viernes 17 de Mayo! En Uruguay 753, CABA.",
+                    "Nos casamos por civil el Jueves 16 de Mayo! En Uruguay 753, CABA.",
                     "CustomJS.OpenCivilLocation();"
                 );
         }
