@@ -89,18 +89,18 @@
     CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
 
     // Helper function we will use a lot!
-    CustomJS.OpenMapLocation = function (url) {
+    CustomJS.OpenLink = function (url) {
         window.open(url, "_blank");
     };
 
     // Opening the google maps location of where the civil union will take place
     CustomJS.OpenCivilLocation = function () {
-        CustomJS.OpenMapLocation(CustomJS._civilUnionLocation);
+        CustomJS.OpenLink(CustomJS._civilUnionLocation);
     };
 
     // Opening the google maps location of where the party will take place 
     CustomJS.OpenPartyLocation = function () {
-        CustomJS.OpenMapLocation(CustomJS._partyLocation);
+        CustomJS.OpenLink(CustomJS._partyLocation);
     };
 
 </script>
@@ -163,23 +163,43 @@
     CustomJS._getGiftsSectionHtml = function () {
 
         const subtitleText = "Si tenés ganas de hacernos un regalo depositanos directamente!";
+        const cbu = "CBU: 0170118640000004384968";
+        const cuil = "CUIL: 2033074907";
+        const alias = "ALIAS: SALINA.CUNA.LLAMA";
         const divClose = '</div>';
 
         const gridContainerOpen = '<div class="gifts-grid-container">';
-        const subtitleElement = '<div class="gifts-grid-subtitle"><span>' + subtitleText + '</span></div>';
-        const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
-        const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
-        const aliasButton = CustomJS._getButtonHtml("Copiar ALIAS", "gifts-grid-button3", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
+        const subtitleElement = '<div class="gifts-grid-subtitle">'
+            + '<span class="gift-text-block">' + subtitleText + '</span>'
+            + '<span class="gift-text-block">' + cbu + '</span>'
+            + '<span class="gift-text-block">' + cuil + '</span>'
+            + '<span class="gift-text-block">' + alias + '</span>'
+            + '<span class="gift-text-block">' + CustomJS._getButtonHtml("Ver Datos", "", "") + '</span>'
+            + '</div>';
+        // const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
+        // const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
+        // const aliasButton = CustomJS._getButtonHtml("Copiar ALIAS", "gifts-grid-button3", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
         
 
         const output = 
             gridContainerOpen
                 + subtitleElement
-                + cbuButton + cuilButton + aliasButton
             + divClose;
 
         return output;
-    }
+    };
+
+    // Specific Build closure for a post title and subtitle with specific links
+    CustomJS._getTitleAndSubtitleHtml = function(titleText, titleLink, subtitleText, subtitleLink) {
+
+        const titleHtml = '<h2 class="entry-title"><a href="' + titleLink + '" rel="bookmark">' + titleText + '</a></h2>';
+        const subtitleHtml = '<div class="entry-meta"><span class="posted-on"><a href="' + subtitleLink + '" rel="bookmark"><span class="entry-date published updated">' + subtitleText + '</span></a></span><span class="byline screen-reader-text"> <svg class="icon icon-user" aria-hidden="true" role="img"> <use href="#icon-user" xlink:href="#icon-user"></use> </svg><span class="author-label screen-reader-text">By </span><span class="author vcard screen-reader-text"><a class="url fn n screen-reader-text" href="https://priscila-christian.000webhostapp.com/author/admin">admin</a></span></span></div>';
+
+        const html = titleHtml + subtitleHtml;
+
+        return html;
+
+    };
 
 </script>
 
@@ -188,12 +208,23 @@
     // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
     CustomJS.SetTitlesAndSubtitles = function () {
 
+        const assistanceConfirmationWrapper = jQuery("#post-52 .entry-header");
         const civilUnionPostSubtitle = jQuery("#post-35 .posted-on");
 
         const partyPostTitle = jQuery("post-48 .entry-title");
         const partyPostSubtitle = jQuery("#post-48 .posted-on");
 
         const giftsPostSubtitle = jQuery("#post-50 .posted-on")
+
+        // Assistance Confirmation Customization
+        if (assistanceConfirmationWrapper.length) {
+            assistanceConfirmationWrapper[0].innerHTML = CustomJS._getTitleAndSubtitleHtml(
+                'Click y Confirmá tu Asistencia!',
+                'https://www.casamientos.com.ar/web/priscila-y-christian',
+                '',
+                ''
+            );
+        }
 
         // Civil Union customization
         if (civilUnionPostSubtitle.length) {
@@ -248,7 +279,6 @@
     };
 
 </script>
-
 
 <script type="text/javascript">
 

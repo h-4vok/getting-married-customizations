@@ -131,6 +131,12 @@ span {
         padding-top: 4rem;
     }
 
+    #post-50 .fp-tableCell {
+        vertical-align: bottom;
+        padding-top: 0rem;
+        padding-bottom: 4rem;
+    }
+
     .gifts-grid-container {
         display: grid;
         grid-template-areas:
@@ -139,10 +145,20 @@ span {
             'gifts-button2'
             'gifts-button3';
     }
+
+
 }
 
 .notifyjs-bootstrap-base {
     font-family: 'Righteous', cursive !important;
     text-shadow: none !important;
     border-radius: 0px !important;
+}
+
+#assistance-iframe {
+    border: 0px;
+}
+
+.gift-text-block {
+    display: block;
 }
