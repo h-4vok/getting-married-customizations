@@ -144,17 +144,35 @@ span {
     }
 
     #post-35 .fp-tableCell {
-        padding-top: 2rem;
+        vertical-align: bottom;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+    }
+
+    #post-46 .fp-tableCell {
+        vertical-align: bottom;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
     }
 
     #post-48 .fp-tableCell {
-        padding-top: 2rem;
+        vertical-align: bottom;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
     }
 
     #post-50 .fp-tableCell {
         vertical-align: bottom;
         padding-top: 0rem;
-        padding-bottom: 4rem;
+        padding-bottom: 0rem;
+    }
+
+    #post-52 .fp-tableCell {
+        vertical-align: middle;
+    }
+
+    #post-52 h2.entry-title {
+        text-align: center;
     }
 
     .gifts-grid-container {
