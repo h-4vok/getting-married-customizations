@@ -53,16 +53,25 @@ body #fp-nav ul li a.active span, body .fp-slidesNav ul li a.active span {
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
         0px 8px 13px rgba(0,0,0,0.1),
         0px 18px 23px rgba(0,0,0,0.1);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+    font-size: 3rem;
 }
 
 h2.entry-title a {
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .entry-meta .posted-on:before {
     content: normal;
+}
+
+.custom-header-content div.entry-summary p {
+    font-size: 3rem;
 }
 
 .subtitle-grid-subtitle {
@@ -113,9 +122,12 @@ h2.entry-title a {
 }
 
 span {
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+    text-shadow: 0px 4px 3px rgba(0,0,0,1),
+             0px 8px 13px rgba(0,0,0,11),
+             0px 18px 23px rgba(0,0,0,1);
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: unset;
+    font-size: 1rem;
 }
 
 @media only screen and (max-width: 64em) {
@@ -123,12 +135,20 @@ span {
 		margin-right: 25px;
 	}
 	#countdown {
-		font-size: 0.9375rem;
+		font-size: 1.5rem;
     }
     
     .fp-tableCell {
         vertical-align: text-top;
         padding-top: 4rem;
+    }
+
+    #post-35 .fp-tableCell {
+        padding-top: 2rem;
+    }
+
+    #post-48 .fp-tableCell {
+        padding-top: 2rem;
     }
 
     #post-50 .fp-tableCell {
