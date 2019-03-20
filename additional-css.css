@@ -14,6 +14,7 @@ body {
 	font-size: 2rem;
 }
 
+img[alt="www.000webhost.com"],
 div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"] {
 	display: none !important;
 	visibility: hidden !important;
