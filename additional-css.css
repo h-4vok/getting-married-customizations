@@ -131,6 +131,41 @@ span {
     font-size: 1rem;
 }
 
+div.div-party-info { 
+    display: grid;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div.div-party-info div.dress-code-div {
+    max-height: 400px;
+    max-width: 800px;
+    justify-content: center;
+    text-align: center;
+}
+
+div.div-party-info div.dress-code-div img.dress-code-img {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+div.div-party-info div.instagram-div {
+    max-height: 400px;
+    width: 100%;
+}
+
+div.div-party-info div.instagram-div div.instagram-div-inner {
+    display: flex;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+#post-200 .fp-tableCell {
+    width: unset !important;
+}
+
 @media only screen and (max-width: 64em) {
     #fullpage .entry-content-wrapper {
 		margin-right: 25px;
@@ -184,7 +219,28 @@ span {
             'gifts-button2'
             'gifts-button3';
     }
+    
+    div.div-party-info { 
+        height: unset !important;
+    }
 
+    div.dress-code-div img {
+        max-width: 200px !important;
+        max-height: 200px !important;
+    }
+
+    div.instagram-div div.instagram-div-inner img.instagram-img-ie {
+        display: none !important;
+    }
+
+    #instagram-img-text {
+        max-width: 300px !important;
+        max-height: 300px !important;
+    }
+
+    #post-200 .fp-tableCell {
+        width: 400px !important;
+    }
 
 }
 
@@ -200,4 +256,9 @@ span {
 
 .gift-text-block {
     display: block;
+}
+
+.section7-li,
+#post-224 {
+    display: none !important;
 }

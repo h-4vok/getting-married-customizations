@@ -314,6 +314,33 @@
 
 <script type="text/javascript">
 
+    CustomJS.SetPartyInfoPost = function() {
+
+        const partyInfoPost = jQuery("#post-200");
+
+        if (partyInfoPost.length) {
+            partyInfoPost[0].innerHTML =
+                '<div class="fp-tableCell div-party-info" style="height: 944px;">'
+                    + '<div class="dress-code-div">'
+                        + '<img class="dress-code-img" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/TIPOS-01.png">'
+                    + '</div>'
+                    + '<div class="instagram-div">'
+                        + '<div class="instagram-div-inner">'
+                            + '<img id="instagram-img-text" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/LETRAS-01.png">'
+                            + '<img class="instagram-img-ie" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/CELU-01.png">'
+                        + '</div>'
+                    + '</div>'
+                +'</div>';
+        }
+
+        jQuery('a[href="#section7"]').parent().addClass("section7-li");
+
+    };
+
+</script>
+
+<script type="text/javascript">
+
     // On the document ready event (yep, using jQuery, it's a cheap development yo) we call all the closures we have been defining so far.
     // This way we separate each concern in a separate script tag and then we call everything we want here.
     jQuery(document).ready(function () {
@@ -321,6 +348,7 @@
         CustomJS.RemoveAds();
         CustomJS.SetTitlesAndSubtitles();
         CustomJS.SetTopBanner();
+        CustomJS.SetPartyInfoPost();
     });
 
 </script>
