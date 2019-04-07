@@ -1,264 +1,293 @@
 body {
-    font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
 }
 
-#header-content { 
-    background: rgb(0,0,0,0.1) !important;
+#header-content {
+  background: rgb(0, 0, 0, 0.1) !important;
 }
 
 .section .entry-content-wrapper .entry-header {
-	max-width: 720px;
+  max-width: 720px;
 }
 
 #countdown {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 img[alt="www.000webhost.com"],
 div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"] {
-	display: none !important;
-	visibility: hidden !important;
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .subtext-button {
-	background-color: rgb(130, 36, 227);
-	min-width: 150px;
+  background-color: rgb(130, 36, 227);
+  min-width: 150px;
 }
 
 .subtext-button:hover {
-	background-color: #BCB7E3;
-	color: white;
+  background-color: #bcb7e3;
+  color: white;
 }
 
 a:hover {
-	color: rgb(130, 36, 227) !important;
+  color: rgb(130, 36, 227) !important;
 }
 
-body #fp-nav ul li a.active span, body .fp-slidesNav ul li a.active span {
-	background-color: rgb(130, 36, 227) !important;
+body #fp-nav ul li a.active span,
+body .fp-slidesNav ul li a.active span {
+  background-color: rgb(130, 36, 227) !important;
 }
 
 #post-50 header.entry-header,
-#post-46 header.entry-header{
-	text-align: left !important;
+#post-46 header.entry-header {
+  text-align: left !important;
 }
 
 #post-50 div.entry-container,
-#post-46 div.entry-container{
-	margin-left: unset !important;
-	margin-top: 0px;
+#post-46 div.entry-container {
+  margin-left: unset !important;
+  margin-top: 0px;
 }
 
 .custom-header h1.entry-title,
 .custom-header div.entry-summary {
-    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-        0px 8px 13px rgba(0,0,0,0.1),
-        0px 18px 23px rgba(0,0,0,0.1);
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: black;
-    font-size: 3rem;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: 3rem;
 }
 
 h2.entry-title a {
-	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .entry-meta .posted-on:before {
-    content: normal;
+  content: normal;
 }
 
 .custom-header-content div.entry-summary p {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .subtitle-grid-subtitle {
-    grid-area: subtitle;
+  grid-area: subtitle;
+  font-size: 1.4rem !important;
 }
 
 .subtitle-grid-mapbutton {
-    grid-area: mapbutton;
+  grid-area: mapbutton;
 }
 
 .subtitle-grid-container {
-    display: grid;
-    grid-template-areas:
-        'subtitle'
-        'mapbutton';
-    grid-gap: 10px;
+  display: grid;
+  grid-template-areas:
+    "subtitle"
+    "mapbutton";
+  grid-gap: 10px;
 }
 
 .content-align-right .entry-meta .posted-on {
-    padding-right: 0px !important;
+  padding-right: 0px !important;
 }
 
 .gifts-grid-subtitle {
-    grid-area: gifts-subtitle;
+  grid-area: gifts-subtitle;
 }
 
 .gifts-grid-button1 {
-    grid-area: gifts-button1;
-    margin: 0 1rem 0 0;
+  grid-area: gifts-button1;
+  margin: 0 1rem 0 0;
 }
 
 .gifts-grid-button2 {
-    grid-area: gifts-button2;
-    margin: 0 1rem 0 0;
+  grid-area: gifts-button2;
+  margin: 0 1rem 0 0;
 }
 
 .gifts-grid-button3 {
-    grid-area: gifts-button3;
-    margin: 0 1rem 0 0;
+  grid-area: gifts-button3;
+  margin: 0 1rem 0 0;
 }
 
 .gifts-grid-container {
-    display: grid;
-    grid-template-areas:
-        'gifts-subtitle gifts-subtitle gifts-subtitle'
-        'gifts-button1 gifts-button2 gifts-button3';
-    grid-gap: 10px;
+  display: grid;
+  grid-template-areas:
+    "gifts-subtitle gifts-subtitle gifts-subtitle"
+    "gifts-button1 gifts-button2 gifts-button3";
+  grid-gap: 10px;
 }
 
 span {
-    text-shadow: 0px 4px 3px rgba(0,0,0,1),
-             0px 8px 13px rgba(0,0,0,11),
-             0px 18px 23px rgba(0,0,0,1);
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: unset;
-    font-size: 1rem;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 1), 0px 8px 13px rgba(0, 0, 0, 11), 0px 18px 23px rgba(0, 0, 0, 1);
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: unset;
+  font-size: 1rem;
 }
 
-div.div-party-info { 
-    display: grid;
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+div.div-party-info {
+  display: grid;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 div.div-party-info div.dress-code-div {
-    max-height: 400px;
-    max-width: 800px;
-    justify-content: center;
-    text-align: center;
+  max-height: 400px;
+  max-width: 800px;
+  justify-content: center;
+  text-align: center;
 }
 
 div.div-party-info div.dress-code-div img.dress-code-img {
-    max-width: 400px;
-    max-height: 400px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 div.div-party-info div.instagram-div {
-    max-height: 400px;
-    width: 100%;
+  max-height: 400px;
+  width: 100%;
 }
 
 div.div-party-info div.instagram-div div.instagram-div-inner {
-    display: flex;
-    height: 100%;
-    text-align: center;
-    width: 100%;
+  display: flex;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.fp-tableCell {
+  vertical-align: bottom;
+}
+
+.custom-header .fp-tableCell,
+#post-52 .fp-tableCell {
+  vertical-align: middle;
 }
 
 #post-200 .fp-tableCell {
-    width: unset !important;
+  width: unset !important;
 }
 
 @media only screen and (max-width: 64em) {
-    #fullpage .entry-content-wrapper {
-		margin-right: 25px;
-	}
-	#countdown {
-		font-size: 1.5rem;
-    }
-    
-    .fp-tableCell {
-        vertical-align: text-top;
-        padding-top: 4rem;
-    }
+  #fullpage .entry-content-wrapper {
+    margin-right: 25px;
+  }
+  #countdown {
+    font-size: 1.5rem;
+  }
 
-    #post-35 .fp-tableCell {
-        vertical-align: bottom;
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-    }
+  .fp-tableCell {
+    vertical-align: text-top;
+    padding-top: 4rem;
+  }
 
-    #post-46 .fp-tableCell {
-        vertical-align: bottom;
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-    }
+  #post-35 .fp-tableCell {
+    vertical-align: bottom;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
 
-    #post-48 .fp-tableCell {
-        vertical-align: bottom;
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-    }
+  #post-46 .fp-tableCell {
+    vertical-align: bottom;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
 
-    #post-50 .fp-tableCell {
-        vertical-align: bottom;
-        padding-top: 0rem;
-        padding-bottom: 0rem;
-    }
+  #post-48 .fp-tableCell {
+    vertical-align: bottom;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
 
-    #post-52 .fp-tableCell {
-        vertical-align: middle;
-    }
+  #post-50 .fp-tableCell {
+    vertical-align: bottom;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+  }
 
-    #post-52 h2.entry-title {
-        text-align: center;
-    }
+  #post-52 .fp-tableCell {
+    vertical-align: middle;
+  }
 
-    .gifts-grid-container {
-        display: grid;
-        grid-template-areas:
-            'gifts-subtitle'
-            'gifts-button1'
-            'gifts-button2'
-            'gifts-button3';
-    }
-    
-    div.div-party-info { 
-        height: unset !important;
-    }
+  #post-52 h2.entry-title {
+    text-align: center;
+  }
 
-    div.dress-code-div img {
-        max-width: 200px !important;
-        max-height: 200px !important;
-    }
+  .gifts-grid-container {
+    display: grid;
+    grid-template-areas:
+      "gifts-subtitle"
+      "gifts-button1"
+      "gifts-button2"
+      "gifts-button3";
+  }
 
-    div.instagram-div div.instagram-div-inner img.instagram-img-ie {
-        display: none !important;
-    }
+  div.div-party-info {
+    height: unset !important;
+  }
 
-    #instagram-img-text {
-        max-width: 300px !important;
-        max-height: 300px !important;
-    }
+  div.dress-code-div img {
+    max-width: 200px !important;
+    max-height: 200px !important;
+  }
 
-    #post-200 .fp-tableCell {
-        width: 400px !important;
-    }
+  div.instagram-div div.instagram-div-inner img.instagram-img-ie {
+    display: none !important;
+  }
 
+  #instagram-img-text {
+    max-width: 300px !important;
+    max-height: 300px !important;
+  }
+
+  #post-200 .fp-tableCell {
+    width: 400px !important;
+  }
 }
 
 .notifyjs-bootstrap-base {
-    font-family: 'Righteous', cursive !important;
-    text-shadow: none !important;
-    border-radius: 0px !important;
+  font-family: "Courgette", cursive !important;
+  text-shadow: none !important;
+  border-radius: 0px !important;
+  font-size: 0.7rem;
+}
+
+.notifyjs-bootstrap-base span {
+  text-shadow: none !important;
 }
 
 #assistance-iframe {
-    border: 0px;
+  border: 0px;
 }
 
 .gift-text-block {
-    display: block;
+  display: block;
+  font-size: 1.4rem;
+}
+
+.subtitle-highlight {
+  color: #e1e324;
+  font-size: 1.4rem;
 }
 
 .section7-li,
 #post-224 {
-    display: none !important;
+  display: none !important;
+}
+
+@media only screen and (max-width: 64em) {
+  .subtitle-grid-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .gift-text-block {
+    font-size: 1rem;
+  }
+
+  .subtitle-highlight {
+    font-size: 1rem;
+  }
 }

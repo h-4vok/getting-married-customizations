@@ -1,354 +1,355 @@
 <link href="https://fonts.googleapis.com/css?family=Courgette|Poppins|Righteous" rel="stylesheet">
 
-<script type="text/javascript" src="https://priscila-christian.000webhostapp.com/wp-content/themes/catch-fullscreen/assets/js/notify.min.js"></script>
+<script type="text/javascript"
+  src="https://priscila-christian.000webhostapp.com/wp-content/themes/catch-fullscreen/assets/js/notify.min.js"></script>
 
 <script type="text/javascript">
-    // Initialize CustomJS object if it does not exist
-    // We will save all our code within this bad boy so we avoid collisions
-    var CustomJS = CustomJS || {};
+  // Initialize CustomJS object if it does not exist
+  // We will save all our code within this bad boy so we avoid collisions
+  var CustomJS = CustomJS || {};
 
 </script>
 <script>
 
-    /* Countdown logic on the main page */
+  /* Countdown logic on the main page */
 
-    // We will call this closure on the document.ready as the last script
-    CustomJS.Countdown = function (containerName) {
-        // Set the date we're counting down to
-        let countDownDate = new Date("May 18, 2019 21:30:00").getTime();
+  // We will call this closure on the document.ready as the last script
+  CustomJS.Countdown = function (containerName) {
+    // Set the date we're counting down to
+    let countDownDate = new Date("May 18, 2019 21:30:00").getTime();
 
-        // Update the count down every 1 second
-        let x = setInterval(function () {
+    // Update the count down every 1 second
+    let x = setInterval(function () {
 
-            // Get todays date and time
-            let now = new Date().getTime();
+      // Get todays date and time
+      let now = new Date().getTime();
 
-            // Find the distance between now and the count down date
-            let distance = countDownDate - now;
+      // Find the distance between now and the count down date
+      let distance = countDownDate - now;
 
-            // Time calculations for days, hours, minutes and seconds
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // Time calculations for days, hours, minutes and seconds
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="countdown"
-            document.getElementById(containerName).innerHTML =
-                days + " días " + hours + " horas " + minutes + " minutos " + seconds + " segundos.";
+      // Display the result in the element with id="countdown"
+      document.getElementById(containerName).innerHTML =
+        days + " días " + hours + " horas " + minutes + " minutos " + seconds + " segundos.";
 
-            // If the count down is finished, write some text 
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById(containerName).innerHTML = "Gracias a todos!!!!";
-            }
-        }, 1000);
-    };
-
-</script>
-
-<script type="text/javascript">
-
-    /* Removing ads of the hosting server! LOL */
-
-    // We will call this closure on the document.ready as the last script
-    CustomJS.RemoveAds = function () {
-
-        let removed = false;
-        let adsInterval = null;
-
-        let removeAdsClosure = () => {
-            let webhostDiv = jQuery('div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"]');
-
-            if (webhostDiv.length) {
-                if (removed) {
-                    if (adsInterval) clearInterval(adsInterval);
-                    return;
-                }
-
-                webhostDiv.hide();
-                if (adsInterval) clearInterval(adsInterval);
-            }
-        };
-
-        removeAdsClosure();
-
-        if (removed) return;
-
-        // Can't recall why I need this. Clearly the ads must be coming back.
-        adsInterval = setInterval(function () {
-            removeAdsClosure();
-        }, 1000)
-
-    };
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById(containerName).innerHTML = "Gracias a todos!!!!";
+      }
+    }, 1000);
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    CustomJS._civilUnionLocation = "https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw";
-    CustomJS._churchUnionLocation = "https://www.google.com/maps/place/Parroquia+Santa+Elisa/@-34.6338817,-58.3823859,15z/data=!4m2!3m1!1s0x0:0x5da9e4272988a7ff?ved=2ahUKEwjG5YHO45PgAhXgEbkGHVEQDZYQ_BIwD3oECAYQCA";
-    CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
-    CustomJS._giftsPostUrl = "https://priscila-christian.000webhostapp.com/2018/10/regalos";
+  /* Removing ads of the hosting server! LOL */
 
-    // Helper function we will use a lot!
-    CustomJS.OpenLink = function (url, target) {
-        target = target || "_blank";
-        window.open(url, target);
+  // We will call this closure on the document.ready as the last script
+  CustomJS.RemoveAds = function () {
+
+    let removed = false;
+    let adsInterval = null;
+
+    let removeAdsClosure = () => {
+      let webhostDiv = jQuery('div[style="text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;display:block !important;"]');
+
+      if (webhostDiv.length) {
+        if (removed) {
+          if (adsInterval) clearInterval(adsInterval);
+          return;
+        }
+
+        webhostDiv.hide();
+        if (adsInterval) clearInterval(adsInterval);
+      }
     };
 
-    // Opening the google maps location of where the civil union will take place
-    CustomJS.OpenCivilLocation = function () {
-        CustomJS.OpenLink(CustomJS._civilUnionLocation);
-    };
+    removeAdsClosure();
 
-    // Opening the google maps location of where the party will take place 
-    CustomJS.OpenPartyLocation = function () {
-        CustomJS.OpenLink(CustomJS._partyLocation);
-    };
+    if (removed) return;
 
-    CustomJS.OpenChurchUnionLocation = function () {
-        CustomJS.OpenLink(CustomJS._churchUnionLocation);
-    };
+    // Can't recall why I need this. Clearly the ads must be coming back.
+    adsInterval = setInterval(function () {
+      removeAdsClosure();
+    }, 1000)
 
-    CustomJS.OpenGiftsPage = function() {
-        CustomJS.OpenLink(CustomJS._giftsPostUrl);
-    };
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    CustomJS._copyTextToClipboard = function (element, text) {
-        const hiddenElement = document.createElement('textarea');
-        hiddenElement.value = text;
-        document.body.appendChild(hiddenElement);
-        hiddenElement.select();
-        document.execCommand('copy');
-        document.body.removeChild(hiddenElement);
+  CustomJS._civilUnionLocation = "https://www.google.com.ar/maps/place/Registro+Civil+Central/@-34.5999214,-58.386505,15z/data=!4m2!3m1!1s0x0:0x37aa9757a93e89f0?sa=X&ved=2ahUKEwiW4aeFrYneAhUDhZAKHclHASsQ_BIwCnoECAsQCw";
+  CustomJS._churchUnionLocation = "https://www.google.com/maps/place/Parroquia+Santa+Elisa/@-34.6338817,-58.3823859,15z/data=!4m2!3m1!1s0x0:0x5da9e4272988a7ff?ved=2ahUKEwjG5YHO45PgAhXgEbkGHVEQDZYQ_BIwD3oECAYQCA";
+  CustomJS._partyLocation = "https://www.google.com/maps/place/Ensue%C3%B1o+Recepciones/@-34.6616883,-58.3689685,15z/data=!4m5!3m4!1s0x0:0x8259557a65c7be17!8m2!3d-34.6616883!4d-58.3689685";
+  CustomJS._giftsPostUrl = "https://priscila-christian.000webhostapp.com/2018/10/regalos";
 
-        jQuery(element).notify("Copiado!", "info");
-    };
+  // Helper function we will use a lot!
+  CustomJS.OpenLink = function (url, target) {
+    target = target || "_blank";
+    window.open(url, target);
+  };
+
+  // Opening the google maps location of where the civil union will take place
+  CustomJS.OpenCivilLocation = function () {
+    CustomJS.OpenLink(CustomJS._civilUnionLocation);
+  };
+
+  // Opening the google maps location of where the party will take place 
+  CustomJS.OpenPartyLocation = function () {
+    CustomJS.OpenLink(CustomJS._partyLocation);
+  };
+
+  CustomJS.OpenChurchUnionLocation = function () {
+    CustomJS.OpenLink(CustomJS._churchUnionLocation);
+  };
+
+  CustomJS.OpenGiftsPage = function () {
+    CustomJS.OpenLink(CustomJS._giftsPostUrl);
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    /* Helper methods that build HTML components */
+  CustomJS._copyTextToClipboard = function (element, text) {
+    const hiddenElement = document.createElement('textarea');
+    hiddenElement.value = text;
+    document.body.appendChild(hiddenElement);
+    hiddenElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(hiddenElement);
 
-    // Build a BUTTON the way we like it
-    CustomJS._getButtonHtml = function (text, className, script) {
+    jQuery(element).notify("Copiado!", "info");
+  };
 
-        const buttonElement = "<button class='" + className + " subtext-button' onClick='" + script + "'>" + text + "</button>";
-        return buttonElement;
+</script>
 
+<script type="text/javascript">
+
+  /* Helper methods that build HTML components */
+
+  // Build a BUTTON the way we like it
+  CustomJS._getButtonHtml = function (text, className, script) {
+
+    const buttonElement = "<button class='" + className + " subtext-button' onClick='" + script + "'>" + text + "</button>";
+    return buttonElement;
+
+  }
+
+  // Build a GRID style subtitle html with an optional suffix element
+  CustomJS._getGridySubtitleHtml = function (html, suffixElement) {
+
+    suffixElement = suffixElement ? suffixElement : "";
+
+    const gridDivOpen = "<div class='subtitle-grid-container'>";
+    const subtitleElement = "<span class='subtitle-grid-subtitle'>" + html + "</span>";
+    const gridDivClose = "</div>";
+
+    const output = gridDivOpen + subtitleElement + suffixElement + gridDivClose;
+
+    return output;
+
+  }
+
+  // Build a GRID style subtitle html with a button below for google maps links
+  CustomJS._getGridySubtitleAndButtonHtml = function (text, mapLocationScript) {
+
+    const buttonElement = CustomJS._getButtonHtml("Cómo llegar", "subtitle-grid-mapbutton", mapLocationScript);
+    const divWithButtonElement = "<div class='subtitle-grid-mapbutton'>" + buttonElement + "</div>";
+
+    const output = CustomJS._getGridySubtitleHtml(text, divWithButtonElement);
+
+    return output;
+
+  };
+
+  // Specific Build closure for a GRID style for the Gifts section
+  CustomJS._getGiftsSectionHtml = function () {
+
+    const subtitleText = "Lo que más nos importa es tu presencia pero estaremos muy agradecidos si nos ayudan con un pedacito de nuestra Luna de Miel.";
+    const divClose = '</div>';
+
+    const gridContainerOpen = '<div class="gifts-grid-container">';
+    const subtitleElement = '<div class="gifts-grid-subtitle">'
+      + '<span class="gift-text-block">' + subtitleText + '</span>'
+      + '<span class="gift-text-block">' + CustomJS._getButtonHtml("Datos Bancarios", "", "CustomJS.OpenGiftsPage();") + '</span>'
+      + '</div>';
+    // const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
+    // const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
+    // const aliasButton = CustomJS._getButtonHtml("Copiar ALIAS", "gifts-grid-button3", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
+
+
+    const output =
+      gridContainerOpen
+      + subtitleElement
+      + divClose;
+
+    return output;
+  };
+
+  // Specific Build closure for a post title and subtitle with specific links
+  CustomJS._getTitleAndSubtitleHtml = function (titleText, titleLink, subtitleText, subtitleLink) {
+
+    const titleHtml = '<h2 class="entry-title"><a target="_blank" href="' + titleLink + '" rel="bookmark">' + titleText + '</a></h2>';
+    const subtitleHtml = '<div class="entry-meta"><span class="posted-on"><a target="_blank" href="' + subtitleLink + '" rel="bookmark"><span class="entry-date published updated">' + subtitleText + '</span></a></span><span class="byline screen-reader-text"> <svg class="icon icon-user" aria-hidden="true" role="img"> <use href="#icon-user" xlink:href="#icon-user"></use> </svg><span class="author-label screen-reader-text">By </span><span class="author vcard screen-reader-text"><a class="url fn n screen-reader-text" href="https://priscila-christian.000webhostapp.com/author/admin">admin</a></span></span></div>';
+
+    const html = titleHtml + subtitleHtml;
+
+    return html;
+
+  };
+
+</script>
+
+<script type="text/javascript">
+
+  // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
+  CustomJS.SetTitlesAndSubtitles = function () {
+
+    const assistanceConfirmationWrapper = jQuery("#post-52 .entry-header");
+
+    const civilUnionPostTitle = jQuery("#post-35 .entry-title");
+    const civilUnionPostSubtitle = jQuery("#post-35 .posted-on");
+
+    const churchUnionTitle = jQuery("#post-46 .entry-title");
+    const churchUnionSubtitle = jQuery("#post-46 .posted-on");
+
+    const partyPostTitle = jQuery("#post-48 .entry-title");
+    const partyPostSubtitle = jQuery("#post-48 .posted-on");
+
+    const giftsPostTitle = jQuery("#post-50 .entry-title");
+    const giftsPostSubtitle = jQuery("#post-50 .posted-on")
+
+    // Assistance Confirmation Customization
+    if (assistanceConfirmationWrapper.length) {
+      assistanceConfirmationWrapper[0].innerHTML = CustomJS._getTitleAndSubtitleHtml(
+        'Click y Confirmá tu Asistencia!',
+        'https://www.casamientos.com.ar/web/priscila-y-christian',
+        '',
+        ''
+      );
     }
 
-    // Build a GRID style subtitle html with an optional suffix element
-    CustomJS._getGridySubtitleHtml = function (html, suffixElement) {
-
-        suffixElement = suffixElement ? suffixElement : "";
-
-        const gridDivOpen = "<div class='subtitle-grid-container'>";
-        const subtitleElement = "<span class='subtitle-grid-subtitle'>" + html + "</span>";
-        const gridDivClose = "</div>";
-
-        const output = gridDivOpen + subtitleElement + suffixElement + gridDivClose;
-
-        return output;
-
+    // Civil Union customization
+    if (civilUnionPostTitle.length) {
+      civilUnionPostTitle[0].innerHTML = "<a>Civil</a>";
     }
 
-    // Build a GRID style subtitle html with a button below for google maps links
-    CustomJS._getGridySubtitleAndButtonHtml = function (text, mapLocationScript) {
+    if (civilUnionPostSubtitle.length) {
+      civilUnionPostSubtitle[0].innerHTML =
+        CustomJS._getGridySubtitleAndButtonHtml(
+          "Nos casamos por civil el <span class='subtitle-highlight'>Jueves 16 de Mayo 17:30hs! En Uruguay 753, CABA</span>.",
+          "CustomJS.OpenCivilLocation();"
+        );
+    }
 
-        const buttonElement = CustomJS._getButtonHtml("Cómo llegar", "subtitle-grid-mapbutton", mapLocationScript);
-        const divWithButtonElement = "<div class='subtitle-grid-mapbutton'>" + buttonElement + "</div>";
+    // Church Union Post Customization
+    if (churchUnionTitle.length) {
+      churchUnionTitle[0].innerHTML = '<a target="_blank" href="' + CustomJS._churchUnionLocation + '" rel="bookmark">Ceremonia Religiosa</a>';
+    }
 
-        const output = CustomJS._getGridySubtitleHtml(text, divWithButtonElement);
+    if (churchUnionSubtitle.length) {
+      churchUnionSubtitle[0].innerHTML =
+        CustomJS._getGridySubtitleAndButtonHtml(
+          "Nos casamos en la <span class='subtitle-highlight'>Iglesia Santa Elisa. En Salta 2290, Capital Federal</span>. Los esperamos el <span class='subtitle-highlight'>Sábado 18 de Mayo a las 20:00hs</span>!",
+          "CustomJS.OpenChurchUnionLocation();"
+        );
+    }
 
-        return output;
+    // Party Post customization
+    if (partyPostTitle.length) {
+      partyPostTitle[0].innerHTML = '<a target="_blank" href="' + CustomJS._partyLocation + '" rel="bookmark">La Fiesta!</a>';
+    }
 
-    };
+    if (partyPostSubtitle.length) {
+      partyPostSubtitle[0].innerHTML =
+        CustomJS._getGridySubtitleAndButtonHtml(
+          "Salón Ensueño Recepciones a las <span class='subtitle-highlight'>21:30hs, Sábado 18 de Mayo! España 122, Avellaneda.</span>",
+          "CustomJS.OpenPartyLocation();"
+        );
+    }
 
-    // Specific Build closure for a GRID style for the Gifts section
-    CustomJS._getGiftsSectionHtml = function () {
+    // Gifts section customization
+    if (giftsPostTitle.length) {
+      giftsPostTitle[0].innerHTML = "<a>Regalos</a>";
+    }
 
-        const subtitleText = "Lo que más nos importa es tu presencia pero estaremos muy agradecidos si nos ayudan con un pedacito de nuestra Luna de Miel.";
-        const divClose = '</div>';
+    if (giftsPostSubtitle.length) {
+      giftsPostSubtitle[0].innerHTML = CustomJS._getGiftsSectionHtml();
+    }
 
-        const gridContainerOpen = '<div class="gifts-grid-container">';
-        const subtitleElement = '<div class="gifts-grid-subtitle">'
-            + '<span class="gift-text-block">' + subtitleText + '</span>'
-            + '<span class="gift-text-block">' + CustomJS._getButtonHtml("Datos Bancarios", "", "CustomJS.OpenGiftsPage();") + '</span>'
-            + '</div>';
-        // const cbuButton = CustomJS._getButtonHtml("Copiar CBU", "gifts-grid-button1", 'CustomJS._copyTextToClipboard(this, "0170118640000004384968");');
-        // const cuilButton = CustomJS._getButtonHtml("Copiar CUIL", "gifts-grid-button2", 'CustomJS._copyTextToClipboard(this, "2033074907");');
-        // const aliasButton = CustomJS._getButtonHtml("Copiar ALIAS", "gifts-grid-button3", 'CustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA");');
-        
-
-        const output = 
-            gridContainerOpen
-                + subtitleElement
-            + divClose;
-
-        return output;
-    };
-
-    // Specific Build closure for a post title and subtitle with specific links
-    CustomJS._getTitleAndSubtitleHtml = function(titleText, titleLink, subtitleText, subtitleLink) {
-
-        const titleHtml = '<h2 class="entry-title"><a target="_blank" href="' + titleLink + '" rel="bookmark">' + titleText + '</a></h2>';
-        const subtitleHtml = '<div class="entry-meta"><span class="posted-on"><a target="_blank" href="' + subtitleLink + '" rel="bookmark"><span class="entry-date published updated">' + subtitleText + '</span></a></span><span class="byline screen-reader-text"> <svg class="icon icon-user" aria-hidden="true" role="img"> <use href="#icon-user" xlink:href="#icon-user"></use> </svg><span class="author-label screen-reader-text">By </span><span class="author vcard screen-reader-text"><a class="url fn n screen-reader-text" href="https://priscila-christian.000webhostapp.com/author/admin">admin</a></span></span></div>';
-
-        const html = titleHtml + subtitleHtml;
-
-        return html;
-
-    };
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    // In this closure we are changing the subtext of some of the posts/articles (which are actually used as sections on the site)
-    CustomJS.SetTitlesAndSubtitles = function () {
+  CustomJS.SetTopBanner = function () {
 
-        const assistanceConfirmationWrapper = jQuery("#post-52 .entry-header");
-        
-        const civilUnionPostTitle = jQuery("#post-35 .entry-title");
-        const civilUnionPostSubtitle = jQuery("#post-35 .posted-on");
+    let topBanner = jQuery("#header-content");
 
-        const churchUnionTitle = jQuery("#post-46 .entry-title");
-        const churchUnionSubtitle = jQuery("#post-46 .posted-on");
+    if (topBanner.length) {
+      topBanner[0].innerHTML =
+        '<div class="wrapper">'
+        + '<div class="site-header-main">'
+        + '<div class="site-branding">'
+        + '<div class="site-identity">'
+        + '<h1 class="site-title"><a href="https://priscila-christian.000webhostapp.com/" rel="home">Priscila &amp; Christian</a></h1>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+    }
 
-        const partyPostTitle = jQuery("#post-48 .entry-title");
-        const partyPostSubtitle = jQuery("#post-48 .posted-on");
-
-        const giftsPostTitle = jQuery("#post-50 .entry-title");
-        const giftsPostSubtitle = jQuery("#post-50 .posted-on")
-
-        // Assistance Confirmation Customization
-        if (assistanceConfirmationWrapper.length) {
-            assistanceConfirmationWrapper[0].innerHTML = CustomJS._getTitleAndSubtitleHtml(
-                'Click y Confirmá tu Asistencia!',
-                'https://www.casamientos.com.ar/web/priscila-y-christian',
-                '',
-                ''
-            );
-        }
-
-        // Civil Union customization
-        if (civilUnionPostTitle.length) {
-            civilUnionPostTitle[0].innerHTML = "<a>Civil</a>";
-        }
-
-        if (civilUnionPostSubtitle.length) {
-            civilUnionPostSubtitle[0].innerHTML =
-                CustomJS._getGridySubtitleAndButtonHtml(
-                    "Nos casamos por civil el Jueves 16 de Mayo 17:30hs! En Uruguay 753, CABA.",
-                    "CustomJS.OpenCivilLocation();"
-                );
-        }
-
-        // Church Union Post Customization
-        if (churchUnionTitle.length) {
-            churchUnionTitle[0].innerHTML = '<a target="_blank" href="' + CustomJS._churchUnionLocation + '" rel="bookmark">Ceremonia Religiosa</a>';
-        }
-
-        if (churchUnionSubtitle.length) {
-            churchUnionSubtitle[0].innerHTML =
-                CustomJS._getGridySubtitleAndButtonHtml(
-                    "Nos casamos en la Iglesia Santa Elisa. En Salta 2290, Capital Federal. Los esperamos el Sábado 18 de Mayo a las 20:00hs!",
-                    "CustomJS.OpenChurchUnionLocation();"
-                );
-        }
-
-        // Party Post customization
-        if (partyPostTitle.length) {
-            partyPostTitle[0].innerHTML = '<a target="_blank" href="' + CustomJS._partyLocation + '" rel="bookmark">La Fiesta!</a>';
-        }
-
-        if (partyPostSubtitle.length) {
-            partyPostSubtitle[0].innerHTML =
-                CustomJS._getGridySubtitleAndButtonHtml(
-                    "Salón Ensueño Recepciones a las 21:30hs, Sábado 18 de Mayo! España 122, Avellaneda.",
-                    "CustomJS.OpenPartyLocation();"
-                );
-        }
-
-        // Gifts section customization
-        if (giftsPostTitle.length) {
-            giftsPostTitle[0].innerHTML = "<a>Regalos</a>";
-        }
-
-        if (giftsPostSubtitle.length) {
-            giftsPostSubtitle[0].innerHTML = CustomJS._getGiftsSectionHtml();
-        }
-
-    };
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    CustomJS.SetTopBanner = function() {
-        
-        let topBanner = jQuery("#header-content");
+  CustomJS.SetPartyInfoPost = function () {
 
-        if (topBanner.length) {
-            topBanner[0].innerHTML = 
-                '<div class="wrapper">'
-                    + '<div class="site-header-main">'
-                        + '<div class="site-branding">'
-                            + '<div class="site-identity">'
-                                + '<h1 class="site-title"><a href="https://priscila-christian.000webhostapp.com/" rel="home">Priscila &amp; Christian</a></h1>'
-                            + '</div>'
-                        + '</div>'
-                    + '</div>'
-                + '</div>';
-        }
+    const partyInfoPost = jQuery("#post-200");
 
-    };
+    if (partyInfoPost.length) {
+      partyInfoPost[0].innerHTML =
+        '<div class="fp-tableCell div-party-info" style="height: 944px;">'
+        + '<div class="dress-code-div">'
+        + '<img class="dress-code-img" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/TIPOS-01.png">'
+        + '</div>'
+        + '<div class="instagram-div">'
+        + '<div class="instagram-div-inner">'
+        + '<img id="instagram-img-text" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/LETRAS-01.png">'
+        + '<img class="instagram-img-ie" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/CELU-01.png">'
+        + '</div>'
+        + '</div>'
+        + '</div>';
+    }
 
-</script>
+    jQuery('a[href="#section7"]').parent().addClass("section7-li");
 
-<script type="text/javascript">
-
-    CustomJS.SetPartyInfoPost = function() {
-
-        const partyInfoPost = jQuery("#post-200");
-
-        if (partyInfoPost.length) {
-            partyInfoPost[0].innerHTML =
-                '<div class="fp-tableCell div-party-info" style="height: 944px;">'
-                    + '<div class="dress-code-div">'
-                        + '<img class="dress-code-img" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/TIPOS-01.png">'
-                    + '</div>'
-                    + '<div class="instagram-div">'
-                        + '<div class="instagram-div-inner">'
-                            + '<img id="instagram-img-text" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/LETRAS-01.png">'
-                            + '<img class="instagram-img-ie" src="https://priscila-christian.000webhostapp.com/wp-content/uploads/2019/03/CELU-01.png">'
-                        + '</div>'
-                    + '</div>'
-                +'</div>';
-        }
-
-        jQuery('a[href="#section7"]').parent().addClass("section7-li");
-
-    };
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    // On the document ready event (yep, using jQuery, it's a cheap development yo) we call all the closures we have been defining so far.
-    // This way we separate each concern in a separate script tag and then we call everything we want here.
-    jQuery(document).ready(function () {
-        CustomJS.Countdown('countdown');
-        CustomJS.RemoveAds();
-        CustomJS.SetTitlesAndSubtitles();
-        CustomJS.SetTopBanner();
-        CustomJS.SetPartyInfoPost();
-    });
+  // On the document ready event (yep, using jQuery, it's a cheap development yo) we call all the closures we have been defining so far.
+  // This way we separate each concern in a separate script tag and then we call everything we want here.
+  jQuery(document).ready(function () {
+    CustomJS.Countdown('countdown');
+    CustomJS.RemoveAds();
+    CustomJS.SetTitlesAndSubtitles();
+    CustomJS.SetTopBanner();
+    CustomJS.SetPartyInfoPost();
+  });
 
 </script>

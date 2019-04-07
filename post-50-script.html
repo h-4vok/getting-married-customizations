@@ -1,175 +1,183 @@
 <style type="text/css">
-    div.wrapper {
-        max-width: 1080px;
-    }
+  div.wrapper {
+    max-width: 1080px;
+  }
 
-    div#primary.content-area {
-        width: 100%;
-    }
+  div#primary.content-area {
+    width: 100%;
+  }
 
-    .grid-title-cbu {
-        grid-area: grid-title-cbu;
-        font-size: 2rem;
-    }
+  .grid-title-cbu {
+    grid-area: grid-title-cbu;
+    font-size: 2rem;
+  }
 
-    .grid-content-cbu {
-        grid-area: grid-content-cbu;
-        font-size: 2rem;
-    }
+  .grid-content-cbu {
+    grid-area: grid-content-cbu;
+    font-size: 2rem;
+  }
 
-    .grid-button-cbu {
-        grid-area: grid-button-cbu;
-        font-size: 2rem;
-    }
+  .grid-button-cbu {
+    grid-area: grid-button-cbu;
+    font-size: 2rem;
+  }
 
-    .grid-title-cuil {
-        grid-area: grid-title-cuil;
-        font-size: 2rem;
-    }
+  .grid-title-cuil {
+    grid-area: grid-title-cuil;
+    font-size: 2rem;
+  }
 
-    .grid-content-cuil {
-        grid-area: grid-content-cuil;
-        font-size: 2rem;
-    }
+  .grid-content-cuil {
+    grid-area: grid-content-cuil;
+    font-size: 2rem;
+  }
 
-    .grid-button-cuil {
-        grid-area: grid-button-cuil;
-        font-size: 2rem;
-    }
+  .grid-button-cuil {
+    grid-area: grid-button-cuil;
+    font-size: 2rem;
+  }
 
-    .grid-title-alias {
-        grid-area: grid-title-alias;
-        font-size: 2rem;
-    }
+  .grid-title-alias {
+    grid-area: grid-title-alias;
+    font-size: 2rem;
+  }
 
-    .grid-content-alias {
-        grid-area: grid-content-alias;
-        font-size: 2rem;
-    }
+  .grid-content-alias {
+    grid-area: grid-content-alias;
+    font-size: 2rem;
+  }
 
+  .grid-button-alias {
+    grid-area: grid-button-alias;
+    font-size: 2rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'grid-title-cbu grid-content-cbu grid-button-cbu'
+      'grid-title-cuil grid-content-cuil grid-button-cuil'
+      'grid-title-alias grid-content-alias grid-button-alias';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    .grid-title-cbu,
+    .grid-content-cbu,
+    .grid-button-cbu,
+    .grid-title-cuil,
+    .grid-content-cuil,
+    .grid-button-cuil,
+    .grid-title-alias,
+    .grid-content-alias,
     .grid-button-alias {
-        grid-area: grid-button-alias;
-        font-size: 2rem;
+      font-size: 0.9rem;
     }
-
-    .grid-container {
-        display: grid;
-        grid-template-areas:
-            'grid-title-cbu grid-content-cbu grid-button-cbu'
-            'grid-title-cuil grid-content-cuil grid-button-cuil'
-            'grid-title-alias grid-content-alias grid-button-alias';
-        grid-gap: 10px;
-        padding: 10px;
-    }
-
-    @media only screen and (max-width: 600px) {
-
-        .grid-title-cbu,
-        .grid-content-cbu,
-        .grid-button-cbu,
-        .grid-title-cuil,
-        .grid-content-cuil,
-        .grid-button-cuil,
-        .grid-title-alias,
-        .grid-content-alias,
-        .grid-button-alias {
-            font-size: 1rem;
-        }
-    }
+  }
 </style>
 
 
 <script type="text/javascript">
 
-    var PostCustomJS = PostCustomJS || {};
+  var PostCustomJS = PostCustomJS || {};
 
 </script>
 
 <script type="text/javascript">
 
-    PostCustomJS._copyTextToClipboard = function (element, text) {
-        const hiddenElement = document.createElement('textarea');
-        hiddenElement.value = text;
-        document.body.appendChild(hiddenElement);
-        hiddenElement.select();
-        document.execCommand('copy');
-        document.body.removeChild(hiddenElement);
+  PostCustomJS._copyTextToClipboard = function (element, text) {
+    const hiddenElement = document.createElement('textarea');
+    hiddenElement.value = text;
+    document.body.appendChild(hiddenElement);
+    hiddenElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(hiddenElement);
 
-        jQuery(element).notify("Copiado!", "success");
-    };
-
-</script>
-
-<script type="text/javascript">
-
-    PostCustomJS._getBreadcrumbHtml = function (text, link) {
-
-        let html = "";
-
-        if (link) {
-
-            html = '<span class="breadcrumb" typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' + link + '">' + text + '</a></span>';
-
-        }
-        else {
-
-            html = '<span class="breadcrumb-current">' + text + '</span>';
-
-        }
-
-        return html;
-
-    };
+    jQuery(element).notify("Copiado!", "success");
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    PostCustomJS.RemoveItems = function () {
+  PostCustomJS._getBreadcrumbHtml = function (text, link) {
 
-        jQuery("div#comments").remove();
-        jQuery("nav.navigation.post-navigation").remove();
-        jQuery("footer").remove();
-        jQuery("aside#secondary").remove();
-        jQuery("header#masthead").remove();
-        jQuery("time.entry-date.published").remove();
+    let html = "";
 
-    };
+    if (link) {
 
-    PostCustomJS.SetBreadcrumb = function () {
+      html = '<span class="breadcrumb" typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' + link + '">' + text + '</a></span>';
 
-        var breadcrumbNav = jQuery("nav.entry-breadcrumbs");
+    }
+    else {
 
-        if (breadcrumbNav.length) {
-            const home = PostCustomJS._getBreadcrumbHtml("Principal", "https://priscila-christian.000webhostapp.com");
-            const current = PostCustomJS._getBreadcrumbHtml("Regalos");
+      html = '<span class="breadcrumb-current">' + text + '</span>';
 
-            breadcrumbNav[0].innerHTML = home + current;
-        }
+    }
 
-    };
+    return html;
 
-    PostCustomJS.SetButtons = function () {
-
-        const cbuButton = jQuery("#button-cbu");
-        const cuilButton = jQuery("#button-cuil");
-        const aliasButton = jQuery("#button-alias");
-
-        cbuButton.click(function () { PostCustomJS._copyTextToClipboard(this, "0170118640000004384968"); });
-        cuilButton.click(function () { PostCustomJS._copyTextToClipboard(this, "2033074907"); });
-        aliasButton.click(function () { PostCustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA"); });
-    };
+  };
 
 </script>
 
 <script type="text/javascript">
 
-    jQuery(document).ready(function () {
+  PostCustomJS.RemoveItems = function () {
 
-        PostCustomJS.RemoveItems();
-        PostCustomJS.SetBreadcrumb();
-        PostCustomJS.SetButtons();
+    jQuery("div#comments").remove();
+    jQuery("nav.navigation.post-navigation").remove();
+    jQuery("footer").remove();
+    jQuery("aside#secondary").remove();
+    jQuery("header#masthead").remove();
+    jQuery("time.entry-date.published").remove();
 
-    });
+  };
+
+  PostCustomJS.SetBreadcrumb = function () {
+
+    var breadcrumbNav = jQuery("nav.entry-breadcrumbs");
+
+    if (breadcrumbNav.length) {
+      const home = PostCustomJS._getBreadcrumbHtml("Principal", "https://priscila-christian.000webhostapp.com");
+      const current = PostCustomJS._getBreadcrumbHtml("Regalos");
+
+      breadcrumbNav[0].innerHTML = home + current;
+    }
+
+  };
+
+  PostCustomJS.SetButtons = function () {
+
+    const cbuButtonPesos = jQuery("#button-cbu-pesos");
+    const cuilButtonPesos = jQuery("#button-cuil-pesos");
+    const aliasButtonPesos = jQuery("#button-alias-pesos");
+
+    cbuButtonPesos.click(function () { PostCustomJS._copyTextToClipboard(this, "0170118640000004384968"); });
+    cuilButtonPesos.click(function () { PostCustomJS._copyTextToClipboard(this, "2033074907"); });
+    aliasButtonPesos.click(function () { PostCustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA"); });
+
+    const cbuButtonDolares = jQuery("#button-cbu-dolares");
+    const cuilButtonDolares = jQuery("#button-cuil-dolares");
+    const aliasButtonDolares = jQuery("#button-alias-dolares");
+
+    cbuButtonDolares.click(function () { PostCustomJS._copyTextToClipboard(this, "0170019044000060963756"); });
+    cuilButtonDolares.click(function () { PostCustomJS._copyTextToClipboard(this, "27317520064"); });
+    aliasButtonDolares.click(function () { PostCustomJS._copyTextToClipboard(this, "PELON.ORILLA.REMERO"); });
+  };
+
+</script>
+
+<script type="text/javascript">
+
+  jQuery(document).ready(function () {
+
+    PostCustomJS.RemoveItems();
+    PostCustomJS.SetBreadcrumb();
+    PostCustomJS.SetButtons();
+
+  });
 
 </script>
