@@ -1,5 +1,4 @@
 <style type="text/css">
-
     div.wrapper {
         max-width: 1080px;
     }
@@ -56,13 +55,27 @@
     .grid-container {
         display: grid;
         grid-template-areas:
-        'grid-title-cbu grid-content-cbu grid-button-cbu'
-        'grid-title-cuil grid-content-cuil grid-button-cuil'
-        'grid-title-alias grid-content-alias grid-button-alias';
+            'grid-title-cbu grid-content-cbu grid-button-cbu'
+            'grid-title-cuil grid-content-cuil grid-button-cuil'
+            'grid-title-alias grid-content-alias grid-button-alias';
         grid-gap: 10px;
         padding: 10px;
     }
 
+    @media only screen and (max-width: 600px) {
+
+        .grid-title-cbu,
+        .grid-content-cbu,
+        .grid-button-cbu,
+        .grid-title-cuil,
+        .grid-content-cuil,
+        .grid-button-cuil,
+        .grid-title-alias,
+        .grid-content-alias,
+        .grid-button-alias {
+            font-size: 1rem;
+        }
+    }
 </style>
 
 
@@ -89,7 +102,7 @@
 
 <script type="text/javascript">
 
-    PostCustomJS._getBreadcrumbHtml = function(text, link) {
+    PostCustomJS._getBreadcrumbHtml = function (text, link) {
 
         let html = "";
 
@@ -112,7 +125,7 @@
 
 <script type="text/javascript">
 
-    PostCustomJS.RemoveItems = function() {
+    PostCustomJS.RemoveItems = function () {
 
         jQuery("div#comments").remove();
         jQuery("nav.navigation.post-navigation").remove();
@@ -123,7 +136,7 @@
 
     };
 
-    PostCustomJS.SetBreadcrumb = function() {
+    PostCustomJS.SetBreadcrumb = function () {
 
         var breadcrumbNav = jQuery("nav.entry-breadcrumbs");
 
@@ -136,22 +149,22 @@
 
     };
 
-    PostCustomJS.SetButtons = function() {
+    PostCustomJS.SetButtons = function () {
 
         const cbuButton = jQuery("#button-cbu");
         const cuilButton = jQuery("#button-cuil");
         const aliasButton = jQuery("#button-alias");
-        
-        cbuButton.click(function() { PostCustomJS._copyTextToClipboard(this, "0170118640000004384968"); });
-        cuilButton.click(function() { PostCustomJS._copyTextToClipboard(this, "2033074907"); });
-        aliasButton.click(function() { PostCustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA"); });
+
+        cbuButton.click(function () { PostCustomJS._copyTextToClipboard(this, "0170118640000004384968"); });
+        cuilButton.click(function () { PostCustomJS._copyTextToClipboard(this, "2033074907"); });
+        aliasButton.click(function () { PostCustomJS._copyTextToClipboard(this, "SALINA.CUNA.LLAMA"); });
     };
 
 </script>
 
 <script type="text/javascript">
-    
-    jQuery(document).ready(function() {
+
+    jQuery(document).ready(function () {
 
         PostCustomJS.RemoveItems();
         PostCustomJS.SetBreadcrumb();
